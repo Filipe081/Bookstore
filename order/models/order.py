@@ -1,5 +1,8 @@
-from django.db import models
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
 from django.contrib.auth.models import User
+from django.db import models
 
 from product.models import Product
 

@@ -4,11 +4,7 @@ ASGI config for bookstore project.
 It exposes the ASGI callable as a module-level variable named ``application``.
 
 For more information on this file, see
-<<<<<<< HEAD
-https://docs.djangoproject.com/en/3.2/howto/deployment/asgi/
-=======
 https://docs.djangoproject.com/en/5.0/howto/deployment/asgi/
->>>>>>> f7c294766804d6077e22a61d40c5fcdba9c96cbd
 """
 
 import os

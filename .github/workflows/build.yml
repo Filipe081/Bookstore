@@ -1,50 +1,41 @@
 name: Python application
 
-on: [push]
+on: push
 
 jobs:
   build:
     strategy:
       fail-fast: false
       matrix:
-<<<<<<< HEAD
-        python-version: [3.8, 3.9]
-=======
         python-version: [3.12]
->>>>>>> f7c294766804d6077e22a61d40c5fcdba9c96cbd
+        poetry-version: [1.8.3]
 
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v4
 
     - name: Set up Python ${{ matrix.python-version }}
-      uses: actions/setup-python@v2
+      uses: actions/setup-python@v4
       with:
         python-version: ${{ matrix.python-version }}
 
-    - name: Install poetry
+    - name: Install poetry ${{ matrix.poetry-version }}
       run: |
         python -m ensurepip
         python -m pip install --upgrade pip
-        python -m pip install --upgrade poetry
-<<<<<<< HEAD
-
-=======
->>>>>>> f7c294766804d6077e22a61d40c5fcdba9c96cbd
+        python -m pip install --upgrade poetry==${{ matrix.poetry-version}}
     - name: View poetry --help
       run: poetry --help
 
     - name: Install dependencies
       shell: bash
-<<<<<<< HEAD
-      run: python -m poetry install
-=======
-      run: | 
-        python -m poetry lock
+      run: |
+        python -m poetry env use python${{ matrix.python-version }}
         python -m poetry install
->>>>>>> f7c294766804d6077e22a61d40c5fcdba9c96cbd
-
     - name: Test
+      env:
+        DJANGO_ALLOWED_HOSTS: "localhost 127.0.0.1 [::1]"
+        SECRET_KEY: "foo"
       run: |
         poetry run python manage.py test

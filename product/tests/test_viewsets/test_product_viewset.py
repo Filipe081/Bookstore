@@ -19,14 +19,13 @@ class TestProductViewSet(APITestCase):
         token = Token.objects.create(user=self.user)
         token.save()
 
-
         self.product = ProductFactory(
             title="pro controller",
             price=200.00,
         )
 
     def test_get_all_product(self):
-                token = Token.objects.get(user__username=self.user.username)
+        token = Token.objects.get(user__username=self.user.username)
         self.client.credentials(HTTP_AUTHORIZATION="Token " + token.key)
         response = self.client.get(
             reverse("product-list", kwargs={"version": "v1"}))
@@ -38,9 +37,10 @@ class TestProductViewSet(APITestCase):
         self.assertEqual(product_data['results'][0]["price"], self.product.price)
         self.assertEqual(product_data['results'][0]["active"], self.product.active)
 
-
-
     def test_create_product(self):
+        token = Token.objects.get(user__username=self.user.username)
+        self.client.credentials(HTTP_AUTHORIZATION="Token " + token.key)
+
         category = CategoryFactory()
         data = json.dumps({
             "title": "notebook",

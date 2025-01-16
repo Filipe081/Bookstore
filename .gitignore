@@ -94,6 +94,7 @@ ipython_config.py
 #   install all needed dependencies.
 #Pipfile.lock
 
+<<<<<<< HEAD
 # poetry
 #   Similar to Pipfile.lock, it is generally recommended to include poetry.lock in version control.
 #   This is especially recommended for binary packages to ensure reproducibility, and is more
@@ -110,6 +111,9 @@ ipython_config.py
 .pdm.toml
 
 # PEP 582; used by e.g. github.com/David-OConnor/pyflow and github.com/pdm-project/pdm
+=======
+# PEP 582; used by e.g. github.com/David-OConnor/pyflow
+>>>>>>> dc470303bf4b28221614af9800d5dea6727be939
 __pypackages__/
 
 # Celery stuff
@@ -145,6 +149,7 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+<<<<<<< HEAD
 
 # pytype static type analyzer
 .pytype/
@@ -160,3 +165,5 @@ cython_debug/
 #.idea/
 
 .vercel
+=======
+>>>>>>> dc470303bf4b28221614af9800d5dea6727be939

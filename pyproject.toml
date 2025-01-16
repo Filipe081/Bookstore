@@ -2,6 +2,7 @@
 name = "bookstore"
 version = "0.1.0"
 description = "Bookstore API"
+<<<<<<< HEAD
 authors = ["Manoela Coelho Silva <manoelacs62@gmail.com>"]
 readme = "README.md"
 
@@ -16,6 +17,27 @@ psycopg2-binary = "^2.9.9"
 [tool.poetry.group.dev.dependencies]
 pytest = "^8.1.1"
 factory-boy = "^3.3.0"
+=======
+authors = ["Daniel Santos <drsantos20@gmail.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.8"
+Django = "^3.2.8"
+django-rest-framework = "^0.1.0"
+django-extensions = "^3.1.3"
+django-debug-toolbar = "^3.2.2"
+psycopg2-binary = "^2.9.9"
+autopep8 = "^1.6.0"
+flake8 = "^4.0.1"
+isort = "^5.10.1"
+gunicorn = "^20.1.0"
+whitenoise = "^5.3.0"
+gitpython = "^3.1.44"
+
+[tool.poetry.dev-dependencies]
+pytest = "^6.2.5"
+factory-boy = "^3.2.0"
+>>>>>>> dc470303bf4b28221614af9800d5dea6727be939
 
 [build-system]
 requires = ["poetry-core"]

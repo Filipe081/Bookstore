@@ -28,4 +28,8 @@ class ProductFactory(factory.django.DjangoModelFactory):
                 self.category.add(category)
 
     class Meta:
+<<<<<<< HEAD
         model = Product
+=======
+        model = Product
+>>>>>>> dc470303bf4b28221614af9800d5dea6727be939

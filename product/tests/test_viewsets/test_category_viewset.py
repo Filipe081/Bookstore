@@ -21,12 +21,8 @@ class CategoryViewSet(APITestCase):
         self.assertEqual(response.status_code, status.HTTP_200_OK)
         category_data = json.loads(response.content)
 
-<<<<<<< HEAD
         self.assertEqual(category_data["results"]
                          [0]["title"], self.category.title)
-=======
-        self.assertEqual(category_data['results'][0]["title"], self.category.title)
->>>>>>> f7c294766804d6077e22a61d40c5fcdba9c96cbd
 
     def test_create_category(self):
         data = json.dumps({"title": "technology"})
@@ -41,8 +37,4 @@ class CategoryViewSet(APITestCase):
 
         created_category = Category.objects.get(title="technology")
 
-<<<<<<< HEAD
         self.assertEqual(created_category.title, "technology")
-=======
-        self.assertEqual(created_category.title, "technology")
->>>>>>> f7c294766804d6077e22a61d40c5fcdba9c96cbd

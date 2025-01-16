@@ -7,11 +7,8 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-<<<<<<< HEAD
         python-version: [3.8, 3.9]
-=======
-        python-version: [3.12]
->>>>>>> f7c294766804d6077e22a61d40c5fcdba9c96cbd
+        poetry-version: [1.1.4]
 
     runs-on: ubuntu-latest
 
@@ -23,27 +20,18 @@ jobs:
       with:
         python-version: ${{ matrix.python-version }}
 
-    - name: Install poetry
+    - name: Install poetry ${{ matrix.poetry-version }}
       run: |
         python -m ensurepip
         python -m pip install --upgrade pip
-        python -m pip install --upgrade poetry
-<<<<<<< HEAD
+        python -m pip install poetry==${{ matrix.poetry-version }}
 
-=======
->>>>>>> f7c294766804d6077e22a61d40c5fcdba9c96cbd
     - name: View poetry --help
       run: poetry --help
 
     - name: Install dependencies
       shell: bash
-<<<<<<< HEAD
       run: python -m poetry install
-=======
-      run: | 
-        python -m poetry lock
-        python -m poetry install
->>>>>>> f7c294766804d6077e22a61d40c5fcdba9c96cbd
 
     - name: Test
       run: |

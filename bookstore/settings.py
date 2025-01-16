@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 """
 Django settings for bookstore project.
 
@@ -11,16 +10,13 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 
-=======
->>>>>>> f7c294766804d6077e22a61d40c5fcdba9c96cbd
 import os
 from pathlib import Path
 
+# Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-SECRET_KEY = os.environ.get("SECRET_KEY", "django-insecure-default-key")
 
-<<<<<<< HEAD
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
@@ -30,12 +26,8 @@ SECRET_KEY = "django-insecure-f*k@=53bc5!shef1-6w+m$-g)kspbaljz%8k4(j7iuc-u2_dyd
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'ebac-bookstore-api.herokuapp.com', 'drsantos20.pythonanywhere.com']
-=======
-DEBUG = int(os.environ.get("DEBUG", default=1)) # Default to True for development
->>>>>>> f7c294766804d6077e22a61d40c5fcdba9c96cbd
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'ebac-bookstore-api.herokuapp.com']
 
-ALLOWED_HOSTS = os.environ.get("DJANGO_ALLOWED_HOSTS", "localhost 127.0.0.1").split(" ")
 
 # Application definition
 
@@ -63,10 +55,7 @@ MIDDLEWARE = [
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
     "debug_toolbar.middleware.DebugToolbarMiddleware",
-<<<<<<< HEAD
     "whitenoise.middleware.WhiteNoiseMiddleware",
-=======
->>>>>>> f7c294766804d6077e22a61d40c5fcdba9c96cbd
 ]
 
 ROOT_URLCONF = "bookstore.urls"
@@ -74,18 +63,18 @@ ROOT_URLCONF = "bookstore.urls"
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
-        'DIRS': [os.path.join(BASE_DIR, 'bookstore', 'templates')],
+        "DIRS": [],
         "APP_DIRS": True,
         "OPTIONS": {
-        "context_processors": [
-            "django.template.context_processors.debug",
-            "django.template.context_processors.request",
-            "django.contrib.auth.context_processors.auth",
-            "django.contrib.messages.context_processors.messages",
-        ],
+            "context_processors": [
+                "django.template.context_processors.debug",
+                "django.template.context_processors.request",
+                "django.contrib.auth.context_processors.auth",
+                "django.contrib.messages.context_processors.messages",
+            ],
         },
     },
-    ]
+]
 
 WSGI_APPLICATION = "bookstore.wsgi.application"
 
@@ -101,13 +90,8 @@ DATABASES = {
         "PASSWORD": os.environ.get("SQL_PASSWORD", "password"),
         "HOST": os.environ.get("SQL_HOST", "localhost"),
         "PORT": os.environ.get("SQL_PORT", "5432"),
-<<<<<<< HEAD
     }
 }
-=======
-    }
-    }
->>>>>>> f7c294766804d6077e22a61d40c5fcdba9c96cbd
 
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
@@ -125,7 +109,7 @@ AUTH_PASSWORD_VALIDATORS = [
     {
         "NAME": "django.contrib.auth.password_validation.NumericPasswordValidator",
     },
-    ]
+]
 
 
 # Internationalization
@@ -161,7 +145,6 @@ REST_FRAMEWORK = {
         "rest_framework.authentication.SessionAuthentication",
         "rest_framework.authentication.TokenAuthentication",
     ],
-<<<<<<< HEAD
 }
 
 INTERNAL_IPS = [
@@ -171,10 +154,3 @@ INTERNAL_IPS = [
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 STATIC_ROOT = BASE_DIR / 'staticfiles'
-=======
-    }
-
-INTERNAL_IPS = [
-    "127.0.0.1",
-    ]
->>>>>>> f7c294766804d6077e22a61d40c5fcdba9c96cbd

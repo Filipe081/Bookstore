@@ -26,4 +26,8 @@ class OrderFactory(factory.django.DjangoModelFactory):
                 self.product.add(product)
 
     class Meta:
+<<<<<<< HEAD
         model = Order
+=======
+        model = Order
+>>>>>>> f7c294766804d6077e22a61d40c5fcdba9c96cbd

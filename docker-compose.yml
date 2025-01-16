@@ -15,7 +15,11 @@ services:
     build: .
     command: python manage.py runserver 0.0.0.0:8000
     volumes:
+<<<<<<< HEAD
       - . :/usr/src/app/
+=======
+      - app_data:/usr/src/app/
+>>>>>>> f7c294766804d6077e22a61d40c5fcdba9c96cbd
     ports:
       - 8000:8000
     env_file:
@@ -25,3 +29,7 @@ services:
 
 volumes:
   postgres_data:
+<<<<<<< HEAD
+=======
+  app_data:
+>>>>>>> f7c294766804d6077e22a61d40c5fcdba9c96cbd

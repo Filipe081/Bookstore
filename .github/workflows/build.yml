@@ -7,8 +7,13 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
+<<<<<<< HEAD
         python-version: [3.12]
         poetry-version: [1.8.3]
+=======
+        python-version: [3.8, 3.9]
+        poetry-version: [1.1.4]
+>>>>>>> dc470303bf4b28221614af9800d5dea6727be939
 
     runs-on: ubuntu-latest
 
@@ -24,15 +29,25 @@ jobs:
       run: |
         python -m ensurepip
         python -m pip install --upgrade pip
+<<<<<<< HEAD
         python -m pip install --upgrade poetry==${{ matrix.poetry-version}}
+=======
+        python -m pip install poetry==${{ matrix.poetry-version }}
+
+>>>>>>> dc470303bf4b28221614af9800d5dea6727be939
     - name: View poetry --help
       run: poetry --help
 
     - name: Install dependencies
       shell: bash
+<<<<<<< HEAD
       run: |
         python -m poetry env use python${{ matrix.python-version }}
         python -m poetry install
+=======
+      run: python -m poetry install
+
+>>>>>>> dc470303bf4b28221614af9800d5dea6727be939
     - name: Test
       env:
         DJANGO_ALLOWED_HOSTS: "localhost 127.0.0.1 [::1]"

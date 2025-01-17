@@ -1,5 +1,5 @@
 # `python-base` sets up all our shared environment variables
-FROM python:3.12-slim as python-base
+FROM python:3.8.1-slim AS web
 
 # python
 ENV PYTHONUNBUFFERED=1 \
@@ -33,18 +33,18 @@ ENV PATH="$POETRY_HOME/bin:$VENV_PATH/bin:$PATH"
 
 RUN apt-get update \
     && apt-get install --no-install-recommends -y \
-    # deps for installing poetry
-    curl \
-    # deps for building python deps
-    build-essential
+        # deps for installing poetry
+        curl \
+        # deps for building python deps
+        build-essential
 
-# install poetry - respects $POETRY_VERSION & $POETRY_HOME
-RUN pip install poetry
+# install poetry - using the new installation method
+RUN curl -sSL https://install.python-poetry.org | python3 -
 
-# install postgres dependencies inside of Docker
+# install postgres dependencies
 RUN apt-get update \
     && apt-get -y install libpq-dev gcc \
-    && rm -rf /var/lib/apt/lists/*
+    && pip install psycopg2
 
 # copy project requirement files here to ensure they will be cached.
 WORKDIR $PYSETUP_PATH
@@ -55,7 +55,6 @@ RUN poetry install --no-dev
 
 # quicker install as runtime deps are already installed
 RUN poetry install
-RUN pip install psycopg2
 
 WORKDIR /app
 
